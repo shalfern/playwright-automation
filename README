@@ -1,0 +1,54 @@
+# Slick Playwright Automation Test
+
+End-to-end tests for the Slick Salon staging application using Playwright with TypeScript and Page Object Model.
+
+# Test Coverage
+
+1. Verify user is able to login to the system successfully
+2. Verify user is able to create a new appointment successfully
+3. Verify user is NOT able to save a new client without mandatory fields validation
+
+## Project Structure
+
+```
+├── pages/
+│   ├── LoginPage.ts        # Email login + PIN entry
+│   └── DashboardPage.ts    # User actions
+├── tests/
+│   └── dashboard.spec.ts   # Tests
+├── .env                    # Credentials (not committed)
+├── .gitignore
+├── playwright.config.ts
+└── package.json
+```
+
+## Setup
+
+1. Clone the repository
+   git clone https://github.com/YOUR_USERNAME/playwright-automation.git
+   cd playwright-automation
+
+2. Install dependencies
+   npm install
+
+3. Install Playwright browsers
+   npx playwright install
+
+4. Create `.env` file
+    .env
+
+   Then update `.env` with your staging credentials:
+   ```
+   LOGIN_EMAIL=your-email@example.com
+   LOGIN_PASSWORD=your-password
+   LOGIN_PIN=0000
+
+## Run Tests
+
+   npx playwright test tests/dashboard.spec.ts --headed
+
+## Notes
+
+- Tests run in **serial mode** — login happens once in `beforeAll`, then all tests share the same browser session
+- The app uses custom React components that require `evaluate` clicks instead of standard Playwright `.click()` in some cases
+- Tests use wait methods to slow down when run on browser mode for visibility
