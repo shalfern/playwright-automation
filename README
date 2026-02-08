@@ -25,7 +25,7 @@ End-to-end tests for the Slick Salon staging application using Playwright with T
 ## Setup
 
 1. Clone the repository
-   git clone https://github.com/YOUR_USERNAME/playwright-automation.git
+   git clone https://github.com/shalfern/playwright-automation.git
    cd playwright-automation
 
 2. Install dependencies
